@@ -1,0 +1,16 @@
+{
+   "background_page": "background.html",
+   "browser_action": {
+      "default_icon": "icon.png",
+      "default_title": "Trash Can",
+      "popup": "popup.html"
+   },
+   "description": "Remembers and lets you reopen previously closed tab.",
+   "icons": {
+      "32": "icon.png",
+      "48": "icon48.png"
+   },
+   "name": "Trash Can",
+   "permissions": [ "tabs" ],
+   "version": "0.1.2"
+}

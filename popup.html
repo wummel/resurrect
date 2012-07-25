@@ -1,0 +1,92 @@
+<html>
+<head>
+<style>
+body {
+    width: 300px;
+    color: #000;
+    overflow-x: hidden;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+li:hover {
+    background-color: #E0E5EE;
+}
+
+a {
+    max-width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    padding: 3px 0.3em;
+    color: #000;
+}
+
+a:hover {
+    color: #444;
+}
+
+img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.toolbtn {
+    padding: 0.1em 0.3em;
+    font-family: sans-serif;
+    font-size: 10pt;
+    border-bottom: 1px solid #CCC;
+}
+.toolbtn:hover {
+    cursor: pointer;
+    background: #E0E5EE;
+}
+</style>
+
+<script>
+var openTabs = chrome.extension.getBackgroundPage().openTabs;
+var closedTab = chrome.extension.getBackgroundPage().closedTab;
+
+window.onload = function() {
+    var list = document.createElement("ul");
+    var listelem = document.createElement("li");
+    if (closedTab !== null) {
+        var img = document.createElement("img");
+        img.src = closedTab.favIconUrl;
+        var url = document.createElement("a");
+        url.href = "#";
+        (function() {
+            var tab = closedTab;
+            url.addEventListener('click', function() {
+                chrome.tabs.create({"url": tab.url}, function(t) {
+                    openTabs[t.id] = t;
+                });
+            window.close();
+            });
+        })();
+        url.title = closedTab.title + " - " + closedTab.url;
+        url.appendChild(img);
+        url.appendChild(document.createTextNode(closedTab.title));
+        listelem.appendChild(url);
+    }
+    else {
+        listitem.style.fontStyle = "italic";
+        listitem.appendChild(document.createTextNode("No closed tab yet."));
+    }
+    list.appendChild(listelem);
+    document.body.appendChild(list);
+}
+</script>
+</head>
+<body>
+</body>
+</html>
