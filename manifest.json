@@ -1,16 +1,19 @@
 {
-   "background_page": "background.html",
+   "background": {
+      "scripts": ["background.js"]
+   },
    "browser_action": {
       "default_icon": "icon.png",
       "default_title": "Trash Can",
-      "popup": "popup.html"
+      "default_popup": "popup.html"
    },
    "description": "Remembers and lets you reopen previously closed tab.",
    "icons": {
       "32": "icon.png",
       "48": "icon48.png"
    },
+   "manifest_version": 2,
    "name": "Trash Can",
    "permissions": [ "tabs" ],
-   "version": "0.1.2"
+   "version": "0.2"
 }

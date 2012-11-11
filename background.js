@@ -1,4 +1,3 @@
-<script>
 var openTabs = {};
 var closedTab = null;
 
@@ -20,4 +19,3 @@ chrome.tabs.onRemoved.addListener(function(tabId) {
     closedTab = openTabs[tabId];
     delete openTabs[tabId];
 });
-</script>
