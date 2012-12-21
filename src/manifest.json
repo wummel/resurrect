@@ -4,16 +4,17 @@
    },
    "browser_action": {
       "default_icon": "icon.png",
-      "default_title": "Trash Can",
+      "default_title": "Resurrect",
       "default_popup": "popup.html"
    },
-   "description": "Remembers and lets you reopen previously closed tab.",
+   "description": "Resurrect the last closed tab.",
    "icons": {
       "32": "icon.png",
       "48": "icon48.png"
    },
    "manifest_version": 2,
-   "name": "Trash Can",
-   "permissions": [ "tabs" ],
-   "version": "0.2"
+   "name": "Resurrect",
+   "permissions": ["tabs"],
+   "update_url": "https://github.com/wummel/resurrect/raw/master/releases/updates.xml",
+   "version": "0.1"
 }

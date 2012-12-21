@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         (function() {
             var tab = closedTab;
             url.addEventListener('click', function() {
-                chrome.tabs.create({"url": tab.url}, function(t) {
+                chrome.tabs.create({url: tab.url}, function(t) {
                     openTabs[t.id] = t;
                 });
             window.close();
@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         listelem.appendChild(url);
     }
     else {
-        listitem.style.fontStyle = "italic";
-        listitem.appendChild(document.createTextNode("No closed tab yet."));
+        listelem.style.fontStyle = "italic";
+        listelem.appendChild(document.createTextNode("No closed tab yet."));
     }
     list.appendChild(listelem);
     document.body.appendChild(list);
