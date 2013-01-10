@@ -19,7 +19,7 @@ build-stamp:
 	@python $(HOME)/src/mediacompress.py --overwrite=png,js,css,json $(build_dir)
 	touch $@
 
-dist:	build dist-stamp
+dist:	build-stamp dist-stamp
 dist-stamp:
 	@echo "[DIST] creating CRX package..."
 	mkdir -p $(dist_dir)
@@ -33,12 +33,12 @@ dist-stamp:
 
 releasecheck:	jslint
 
-release: releasecheck dist
+release: releasecheck dist-stamp
 	cp $(dist_dir)/updates.xml releases
-#	git add releases
-#	git commit -m "Release $(version)"
-#	git tag upstream/$(version)
-#	git push --tags origin upstream/$(version)
+	git add releases
+	git commit -m "Release $(version)"
+	git tag upstream/$(version)
+	git push --tags origin upstream/$(version)
 	github-upload wummel $(base_name) $(dist_dir)/$(release_name).crx
 
 clean:
