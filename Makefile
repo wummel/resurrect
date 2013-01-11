@@ -34,7 +34,7 @@ dist-stamp:
 releasecheck:	jslint
 
 release: releasecheck dist-stamp
-	cp $(dist_dir)/updates.xml releases
+	cp $(dist_dir)/updates.xml releases/
 	git add releases
 	git commit -m "Release $(version)"
 	git tag upstream/$(version)
