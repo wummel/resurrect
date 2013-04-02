@@ -16,7 +16,7 @@ build-stamp:
 	@cp -r src/* $(build_dir)
 	@chmod -R a+rX,u+w,go-w -- $(build_dir)
 	@echo "[BUILD] compressing files..."
-	@python $(HOME)/src/mediacompress.py --overwrite=png,js,css,json $(build_dir)
+	@python $(HOME)/src/mediacompress.py --overwrite $(build_dir)
 	touch $@
 
 dist:	build-stamp dist-stamp
