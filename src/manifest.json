@@ -16,5 +16,6 @@
    "name": "Resurrect",
    "permissions": ["tabs"],
    "update_url": "https://github.com/wummel/resurrect/raw/master/releases/updates.xml",
+   "homepage_url": "https://github.com/wummel/resurrect/",
    "version": "0.1"
 }
